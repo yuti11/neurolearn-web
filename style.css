@@ -7,6 +7,7 @@ font-family:Segoe UI;
 .navbar{
 padding:10px;
 background:#020617;
+text-align:center;
 }
 
 .container{
@@ -16,10 +17,11 @@ padding:20px;
 background:#111827;
 border-radius:10px;
 margin-top:30px;
+text-align:center;
 }
 
-input{
-width:90%;
+input, select{
+width:80%;
 padding:10px;
 margin:10px;
 border-radius:5px;
@@ -27,7 +29,7 @@ border:none;
 }
 
 button{
-padding:10px;
+padding:10px 20px;
 background:#2563eb;
 color:white;
 border:none;
@@ -35,8 +37,13 @@ border-radius:5px;
 cursor:pointer;
 }
 
+button:hover{
+background:#1d4ed8;
+}
+
 #result{
 margin-top:20px;
 padding:10px;
 background:#0b1220;
+border-radius:5px;
 }
