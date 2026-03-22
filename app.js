@@ -1,27 +1,10 @@
 function getRec(){
 
 let id = document.getElementById("sid").value;
-
-if(id == ""){
-document.getElementById("result").innerHTML = "Please enter Student ID";
-return;
-}
-
-document.getElementById("result").innerHTML =
-"Student: " + id +
-"<br>Recommended Path:" +
-"<br>1. Python Basics" +
-"<br>2. Data Structures" +
-"<br>3. Machine Learning Foundation";
-
-}
-
-function getCareerRec(){
-
 let role = document.getElementById("career").value;
 
-if(role == ""){
-document.getElementById("result").innerHTML = "Please select a career role";
+if(id == "" || role == ""){
+document.getElementById("result").innerHTML = "Please enter Student ID and select career role";
 return;
 }
 
@@ -51,7 +34,8 @@ courses: "Data Structures, Algorithms, OOP Concepts"
 let result = data[role];
 
 document.getElementById("result").innerHTML =
-"<b>Career:</b> " + role +
+"<b>Student ID:</b> " + id +
+"<br><b>Career:</b> " + role +
 "<br><b>Skills:</b> " + result.skills +
 "<br><b>Courses:</b> " + result.courses;
 
