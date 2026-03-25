@@ -48,6 +48,7 @@
 </select>
 
 <button onclick="getRec()">Get Recommendation</button>
+<button onclick="saveFavorite()">⭐ Save Favorite</button>
 
 <div id="result"></div>
 
@@ -57,16 +58,17 @@
 <h3>History</h3>
 <ul id="historyList"></ul>
 
+<h3>Favorites</h3>
+<ul id="favList"></ul>
+
 </div>
 
 <!-- ADMIN -->
 <div id="adminPage" style="display:none;">
 <h2>Admin Dashboard</h2>
-
 <p>Total Users: 50</p>
 <p>Top Career: Data Scientist</p>
 <p>System Status: Active</p>
-
 <button onclick="backToMain()">Back</button>
 </div>
 
