@@ -8,7 +8,6 @@ document.getElementById("result").innerHTML = "Please enter Student ID and selec
 return;
 }
 
-// LOADING EFFECT
 document.getElementById("result").innerHTML = "Analyzing...";
 
 setTimeout(() => {
@@ -43,16 +42,12 @@ values: [5,4,3]
 
 let result = data[role];
 
-// CLEAN RESULT UI
 document.getElementById("result").innerHTML =
 "<h3>Recommendation Result</h3>" +
 "<p><b>Student ID:</b> " + id + "</p>" +
 "<p><b>Career:</b> " + role + "</p>" +
 "<p><b>Skills:</b> " + result.skills + "</p>" +
 "<p><b>Courses:</b> " + result.courses + "</p>";
-
-
-// GRAPH
 
 let ctx = document.getElementById('chart').getContext('2d');
 
