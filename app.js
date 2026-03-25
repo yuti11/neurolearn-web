@@ -1,3 +1,5 @@
+let currentRole = "";
+
 function login(){
 
 let user = document.getElementById("username").value;
@@ -25,6 +27,7 @@ let user = localStorage.getItem("user");
 document.getElementById("userDisplay").innerHTML = "Welcome, " + user;
 
 loadHistory();
+loadFavorites();
 }
 
 function logout(){
@@ -50,6 +53,8 @@ function getRec(){
 let id = document.getElementById("sid").value;
 let role = document.getElementById("career").value;
 
+currentRole = role;
+
 if(id == "" || role == ""){
 document.getElementById("result").innerHTML = "Please enter Student ID and select career role";
 return;
@@ -63,41 +68,52 @@ let data = {
 "Data Scientist": {
 skills: "Python, Machine Learning, Statistics",
 courses: "ML Basics, Pandas, Data Science Intro",
-values: [5,4,3]
+values: [5,4,3],
+gap: "SQL, Deep Learning"
 },
 "Web Developer": {
 skills: "HTML, CSS, JavaScript",
 courses: "Web Development, Frontend Basics, JS Advanced",
-values: [5,4,3]
+values: [5,4,3],
+gap: "React, Backend"
 },
 "Data Analyst": {
 skills: "Excel, SQL, Python",
 courses: "Data Analysis, SQL Basics, Excel Advanced",
-values: [5,4,3]
+values: [5,4,3],
+gap: "Visualization Tools"
 },
 "AI Engineer": {
 skills: "Python, Deep Learning, TensorFlow",
 courses: "Deep Learning, Neural Networks, AI Basics",
-values: [5,4,3]
+values: [5,4,3],
+gap: "Advanced Math"
 },
 "Software Engineer": {
 skills: "Java, DSA, OOP",
 courses: "Data Structures, Algorithms, OOP Concepts",
-values: [5,4,3]
+values: [5,4,3],
+gap: "System Design"
 }
 };
 
 let result = data[role];
 
+// random confidence
+let confidence = Math.floor(Math.random() * 20) + 80;
+
 document.getElementById("result").innerHTML =
 "<h3>Recommendation Result</h3>" +
 "<p><b>Student ID:</b> " + id + "</p>" +
 "<p><b>Career:</b> " + role + "</p>" +
+"<p><b>Confidence:</b> " + confidence + "%</p>" +
 "<p><b>Skills:</b> " + result.skills + "</p>" +
-"<p><b>Courses:</b> " + result.courses + "</p>";
+"<p><b>Courses:</b> " + result.courses + "</p>" +
+"<p><b>Skill Gap:</b> " + result.gap + "</p>";
 
 saveHistory(role);
 
+// graph
 let ctx = document.getElementById('chart').getContext('2d');
 
 if(window.myChart){
@@ -121,7 +137,6 @@ data: result.values
 function saveHistory(role){
 
 let history = JSON.parse(localStorage.getItem("history")) || [];
-
 history.push(role);
 
 localStorage.setItem("history", JSON.stringify(history));
@@ -132,11 +147,36 @@ loadHistory();
 function loadHistory(){
 
 let history = JSON.parse(localStorage.getItem("history")) || [];
-
 let list = document.getElementById("historyList");
 list.innerHTML = "";
 
 history.slice(-5).reverse().forEach(item => {
+let li = document.createElement("li");
+li.textContent = item;
+list.appendChild(li);
+});
+}
+
+// FAVORITE
+function saveFavorite(){
+
+if(currentRole == "") return;
+
+let fav = JSON.parse(localStorage.getItem("fav")) || [];
+fav.push(currentRole);
+
+localStorage.setItem("fav", JSON.stringify(fav));
+
+loadFavorites();
+}
+
+function loadFavorites(){
+
+let fav = JSON.parse(localStorage.getItem("fav")) || [];
+let list = document.getElementById("favList");
+list.innerHTML = "";
+
+fav.slice(-5).reverse().forEach(item => {
 let li = document.createElement("li");
 li.textContent = item;
 list.appendChild(li);
