@@ -10,11 +10,10 @@ return;
 
 localStorage.setItem("user", user);
 
-// show home
 document.getElementById("loginPage").style.display = "none";
 document.getElementById("homePage").style.display = "block";
 
-document.getElementById("welcomeUser").innerHTML = "Welcome, " + user ;
+document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
 }
 
 function startApp(){
@@ -24,6 +23,8 @@ document.getElementById("mainPage").style.display = "block";
 
 let user = localStorage.getItem("user");
 document.getElementById("userDisplay").innerHTML = "Welcome, " + user;
+
+loadHistory();
 }
 
 function logout(){
@@ -32,6 +33,16 @@ localStorage.removeItem("user");
 document.getElementById("mainPage").style.display = "none";
 document.getElementById("homePage").style.display = "none";
 document.getElementById("loginPage").style.display = "block";
+}
+
+function openAdmin(){
+document.getElementById("mainPage").style.display = "none";
+document.getElementById("adminPage").style.display = "block";
+}
+
+function backToMain(){
+document.getElementById("adminPage").style.display = "none";
+document.getElementById("mainPage").style.display = "block";
 }
 
 function getRec(){
@@ -85,6 +96,8 @@ document.getElementById("result").innerHTML =
 "<p><b>Skills:</b> " + result.skills + "</p>" +
 "<p><b>Courses:</b> " + result.courses + "</p>";
 
+saveHistory(role);
+
 let ctx = document.getElementById('chart').getContext('2d');
 
 if(window.myChart){
@@ -103,4 +116,29 @@ data: result.values
 });
 
 }, 500);
+}
+
+function saveHistory(role){
+
+let history = JSON.parse(localStorage.getItem("history")) || [];
+
+history.push(role);
+
+localStorage.setItem("history", JSON.stringify(history));
+
+loadHistory();
+}
+
+function loadHistory(){
+
+let history = JSON.parse(localStorage.getItem("history")) || [];
+
+let list = document.getElementById("historyList");
+list.innerHTML = "";
+
+history.slice(-5).reverse().forEach(item => {
+let li = document.createElement("li");
+li.textContent = item;
+list.appendChild(li);
+});
 }
