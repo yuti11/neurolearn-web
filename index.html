@@ -12,20 +12,16 @@
 <!-- LOGIN -->
 <div id="loginPage">
 <h1>Login</h1>
-
 <input id="username" placeholder="Enter Username">
 <input id="password" type="password" placeholder="Enter Password">
-
 <button onclick="login()">Login</button>
-
 <p id="error"></p>
 </div>
 
-<!-- WELCOME -->
+<!-- HOME -->
 <div id="homePage" style="display:none;">
 <h1>Welcome to NeuroLearn AI</h1>
 <h3 id="welcomeUser"></h3>
-
 <button onclick="startApp()">Start</button>
 </div>
 
@@ -36,6 +32,7 @@
 <p id="userDisplay"></p>
 
 <button onclick="logout()">Logout</button>
+<button onclick="openAdmin()">Admin</button>
 
 <br><br>
 
@@ -50,8 +47,6 @@
 <option>Software Engineer</option>
 </select>
 
-<br>
-
 <button onclick="getRec()">Get Recommendation</button>
 
 <div id="result"></div>
@@ -59,6 +54,20 @@
 <h3>Skill Analysis</h3>
 <canvas id="chart"></canvas>
 
+<h3>History</h3>
+<ul id="historyList"></ul>
+
+</div>
+
+<!-- ADMIN -->
+<div id="adminPage" style="display:none;">
+<h2>Admin Dashboard</h2>
+
+<p>Total Users: 50</p>
+<p>Top Career: Data Scientist</p>
+<p>System Status: Active</p>
+
+<button onclick="backToMain()">Back</button>
 </div>
 
 </div>
