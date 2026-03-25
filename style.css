@@ -41,10 +41,12 @@ border:none;
 border-radius:8px;
 cursor:pointer;
 margin:10px;
+transition:0.3s;
 }
 
 button:hover{
 transform: scale(1.05);
+box-shadow: 0 0 15px #3b82f6;
 }
 
 #result{
@@ -52,4 +54,17 @@ margin-top:20px;
 padding:15px;
 background: rgba(0,0,0,0.4);
 border-radius:10px;
+animation: fadeIn 0.5s ease-in;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+
+li{
+background: rgba(0,0,0,0.3);
+margin:5px;
+padding:8px;
+border-radius:5px;
 }
