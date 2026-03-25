@@ -8,6 +8,11 @@ document.getElementById("result").innerHTML = "Please enter Student ID and selec
 return;
 }
 
+// LOADING EFFECT
+document.getElementById("result").innerHTML = "Analyzing...";
+
+setTimeout(() => {
+
 let data = {
 "Data Scientist": {
 skills: "Python, Machine Learning, Statistics",
@@ -38,19 +43,19 @@ values: [5,4,3]
 
 let result = data[role];
 
-// TEXT OUTPUT
+// CLEAN RESULT UI
 document.getElementById("result").innerHTML =
-"<b>Student ID:</b> " + id +
-"<br><b>Career:</b> " + role +
-"<br><b>Skills:</b> " + result.skills +
-"<br><b>Courses:</b> " + result.courses;
+"<h3>Recommendation Result</h3>" +
+"<p><b>Student ID:</b> " + id + "</p>" +
+"<p><b>Career:</b> " + role + "</p>" +
+"<p><b>Skills:</b> " + result.skills + "</p>" +
+"<p><b>Courses:</b> " + result.courses + "</p>";
 
 
 // GRAPH
 
 let ctx = document.getElementById('chart').getContext('2d');
 
-// destroy old chart if exists (important)
 if(window.myChart){
 window.myChart.destroy();
 }
@@ -68,5 +73,7 @@ options: {
 responsive: true
 }
 });
+
+}, 500);
 
 }
