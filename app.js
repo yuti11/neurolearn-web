@@ -1,3 +1,39 @@
+function login(){
+
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+
+if(user === "" || pass === ""){
+document.getElementById("error").innerHTML = "Please fill all fields";
+return;
+}
+
+localStorage.setItem("user", user);
+
+// show home
+document.getElementById("loginPage").style.display = "none";
+document.getElementById("homePage").style.display = "block";
+
+document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
+}
+
+function startApp(){
+
+document.getElementById("homePage").style.display = "none";
+document.getElementById("mainPage").style.display = "block";
+
+let user = localStorage.getItem("user");
+document.getElementById("userDisplay").innerHTML = "Welcome, " + user;
+}
+
+function logout(){
+localStorage.removeItem("user");
+
+document.getElementById("mainPage").style.display = "none";
+document.getElementById("homePage").style.display = "none";
+document.getElementById("loginPage").style.display = "block";
+}
+
 function getRec(){
 
 let id = document.getElementById("sid").value;
@@ -67,9 +103,4 @@ data: result.values
 });
 
 }, 500);
-}
-
-function logout(){
-localStorage.removeItem("user");
-window.location.href = "index.html";
 }
