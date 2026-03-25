@@ -8,44 +8,28 @@
 <body>
 
 <div class="container">
-  
-<h2>NeuroLearn AI</h2>
-<p>Get personalized learning path based on your goals</p>
 
-<button onclick="logout()">Logout</button>
-  
-<a href="index.html">
-<button>Back</button>
+<h1>Welcome to NeuroLearn AI</h1>
+
+<h3 id="welcomeUser"></h3>
+
+<p>Your Personalized Learning Recommendation System</p>
+
+<a href="main.html">
+<button>Start</button>
 </a>
-
-<br><br>
-
-<input id="sid" placeholder="Enter Student ID">
-
-<select id="career">
-<option value="">Select Career Role</option>
-<option>Data Scientist</option>
-<option>Web Developer</option>
-<option>Data Analyst</option>
-<option>AI Engineer</option>
-<option>Software Engineer</option>
-</select>
-
-<br>
-
-<button onclick="getRec()">Get Recommendation</button>
-
-<div id="result"></div>
-
-<h3>Skill Analysis</h3>
-<canvas id="chart"></canvas>
-
-<p style="margin-top:20px; font-size:12px;">© NeuroLearn AI 2026</p>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="app.js"></script>
+<script>
+
+let user = localStorage.getItem("user");
+
+if(user){
+document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
+}
+
+</script>
 
 </body>
 </html>
