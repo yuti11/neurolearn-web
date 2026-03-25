@@ -15,7 +15,7 @@ localStorage.setItem("user", user);
 document.getElementById("loginPage").style.display = "none";
 document.getElementById("homePage").style.display = "block";
 
-document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
+document.getElementById("welcomeUser").innerHTML = "Welcome, " + user ;
 }
 
 function startApp(){
