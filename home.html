@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>NeuroLearn AI</title>
+<title>Login - NeuroLearn AI</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -9,25 +9,35 @@
 
 <div class="container">
 
-<h1>Welcome to NeuroLearn AI</h1>
+<h1>Login</h1>
 
-<h3 id="welcomeUser"></h3>
+<input id="username" placeholder="Enter Username">
+<input id="password" type="password" placeholder="Enter Password">
 
-<p>Your Personalized Learning Recommendation System</p>
+<button onclick="login()">Login</button>
 
-<a href="main.html">
-<button>Start</button>
-</a>
+<p id="error"></p>
 
 </div>
 
 <script>
 
-// show username
-let user = localStorage.getItem("user");
+function login(){
 
-if(user){
-document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+
+if(user === "" || pass === ""){
+document.getElementById("error").innerHTML = "Please fill all fields";
+return;
+}
+
+// store username
+localStorage.setItem("user", user);
+
+// redirect to welcome page
+window.location.href = "home.html";
+
 }
 
 </script>
