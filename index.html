@@ -32,21 +32,15 @@ document.getElementById("error").innerHTML = "Please fill all fields";
 return;
 }
 
-// simple login (dummy)
-if(user !== "" && pass !== ""){
-
 // store username
 localStorage.setItem("user", user);
 
-// redirect
-window.location.href = "index.html";
-
-}else{
-document.getElementById("error").innerHTML = "Invalid credentials";
-}
+// redirect to welcome page
+window.location.href = "home.html";
 
 }
 
+</script>
 </script>
 
 </body>
