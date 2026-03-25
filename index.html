@@ -10,6 +10,9 @@
 <div class="container">
 
 <h1>Welcome to NeuroLearn AI</h1>
+
+<h3 id="welcomeUser"></h3>
+
 <p>Your Personalized Learning Recommendation System</p>
 
 <a href="main.html">
@@ -17,6 +20,17 @@
 </a>
 
 </div>
+
+<script>
+
+// show username
+let user = localStorage.getItem("user");
+
+if(user){
+document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
+}
+
+</script>
 
 </body>
 </html>
