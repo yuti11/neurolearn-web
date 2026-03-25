@@ -72,3 +72,8 @@ responsive: true
 }, 500);
 
 }
+
+function logout(){
+localStorage.removeItem("user");
+window.location.href = "login.html";
+}
