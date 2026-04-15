@@ -33,7 +33,6 @@
 
 <!-- NAVIGATION -->
 <div>
-<button onclick="showSection('rec')">Recommendation</button>
 <button onclick="showSection('analysis')">Analysis</button>
 <button onclick="showSection('history')">History</button>
 <button onclick="showSection('fav')">Favorites</button>
@@ -43,7 +42,7 @@
 
 <br>
 
-<!-- RECOMMENDATION -->
+<!-- RECOMMENDATION (DEFAULT VISIBLE) -->
 <div id="recSection">
 <input id="sid" placeholder="Enter Student ID">
 
@@ -77,7 +76,7 @@
 <div id="favSection" style="display:none;">
 <h3>Favorites</h3>
 <ul id="favList"></ul>
-<button onclick="saveFavorite()"> Save Favorite</button>
+<button onclick="saveFavorite()">⭐ Save Favorite</button>
 </div>
 
 <!-- ADMIN -->
