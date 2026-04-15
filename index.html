@@ -2,19 +2,26 @@
 <html>
 <head>
 <title>NeuroLearn AI</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+
+<div id="particles-js"></div>
 
 <div class="container">
 
 <!-- LOGIN -->
 <div id="loginPage">
-<h1>Login</h1>
+<h1>NeuroLearn AI</h1>
+
 <input id="username" placeholder="Enter Username">
 <input id="password" type="password" placeholder="Enter Password">
+
 <button onclick="login()">Login</button>
+
 <p id="error"></p>
 </div>
 
@@ -22,19 +29,32 @@
 <div id="homePage" style="display:none;">
 <h1>Welcome to NeuroLearn AI</h1>
 <h3 id="welcomeUser"></h3>
-<button onclick="startApp()">Start</button>
+
+<button onclick="startApp()">Enter Dashboard</button>
 </div>
 
 <!-- MAIN -->
 <div id="mainPage" style="display:none;">
 
-<h2>NeuroLearn AI</h2>
+<h2>Dashboard</h2>
 <p id="userDisplay"></p>
 
+<div>
+<button onclick="showSection('rec')">Dashboard</button>
+<button onclick="showSection('analysis')">Analysis</button>
+<button onclick="showSection('history')">History</button>
+<button onclick="showSection('fav')">Favorites</button>
+<button onclick="showSection('profile')">Profile</button>
+<button onclick="showSection('about')">About</button>
+<button onclick="showSection('how')">How</button>
+<button onclick="showSection('admin')">Admin</button>
 <button onclick="logout()">Logout</button>
-<button onclick="openAdmin()">Admin</button>
+</div>
 
-<br><br>
+<br>
+
+<!-- RECOMMENDATION -->
+<div id="recSection">
 
 <input id="sid" placeholder="Enter Student ID">
 
@@ -48,34 +68,81 @@
 </select>
 
 <button onclick="getRec()">Get Recommendation</button>
-<button onclick="saveFavorite()"> Save Favorite</button>
 
 <div id="result"></div>
 
+</div>
+
+<!-- ANALYSIS -->
+<div id="analysisSection" style="display:none;">
 <h3>Skill Analysis</h3>
 <canvas id="chart"></canvas>
+</div>
 
+<!-- HISTORY -->
+<div id="historySection" style="display:none;">
 <h3>History</h3>
 <ul id="historyList"></ul>
+</div>
 
+<!-- FAVORITES -->
+<div id="favSection" style="display:none;">
 <h3>Favorites</h3>
 <ul id="favList"></ul>
+<button onclick="saveFavorite()"> Save Favorite</button>
+</div>
 
+<!-- PROFILE -->
+<div id="profileSection" style="display:none;">
+<h3>Profile</h3>
+<p id="profileName"></p>
+<p id="totalSearch"></p>
+<p id="favCareer"></p>
+</div>
+
+<!-- ABOUT -->
+<div id="aboutSection" style="display:none;">
+<h3>About</h3>
+<p>This system provides personalized AI-based learning recommendations.</p>
+<p>Technologies: HTML, CSS, JavaScript, Azure</p>
+</div>
+
+<!-- HOW -->
+<div id="howSection" style="display:none;">
+<h3>How It Works</h3>
+<p>1. User inputs data</p>
+<p>2. System processes it</p>
+<p>3. AI generates recommendation</p>
+<p>4. Results + visualization shown</p>
 </div>
 
 <!-- ADMIN -->
-<div id="adminPage" style="display:none;">
-<h2>Admin Dashboard</h2>
+<div id="adminSection" style="display:none;">
+<h3>Admin Dashboard</h3>
 <p>Total Users: 50</p>
 <p>Top Career: Data Scientist</p>
-<p>System Status: Active</p>
-<button onclick="backToMain()">Back</button>
+<p>Status: Active</p>
+</div>
+
 </div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script src="app.js"></script>
+
+<script>
+particlesJS("particles-js", {
+particles: {
+number: { value: 60 },
+size: { value: 3 },
+move: { speed: 2 },
+line_linked: { enable: true },
+color: { value: "#ffffff" }
+}
+});
+</script>
 
 </body>
 </html>
