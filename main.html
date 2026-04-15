@@ -1,55 +1,206 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>NeuroLearn AI</title>
-<link rel="stylesheet" href="style.css">
-</head>
+let currentRole = "";
 
-<body>
+// LOGIN
+function login(){
 
-<div class="container">
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
 
-<h2>NeuroLearn AI</h2>
-<p id="userDisplay"></p>
-
-<button onclick="logout()">Logout</button>
-
-<br><br>
-
-<input id="sid" placeholder="Enter Student ID">
-
-<select id="career">
-<option value="">Select Career Role</option>
-<option>Data Scientist</option>
-<option>Web Developer</option>
-<option>Data Analyst</option>
-<option>AI Engineer</option>
-<option>Software Engineer</option>
-</select>
-
-<br>
-
-<button onclick="getRec()">Get Recommendation</button>
-
-<div id="result"></div>
-
-<h3>Skill Analysis</h3>
-<canvas id="chart"></canvas>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="app.js"></script>
-
-<script>
-
-// show user
-let user = localStorage.getItem("user");
-if(user){
-document.getElementById("userDisplay").innerHTML = "Welcome, " + user;
+if(user === "" || pass === ""){
+document.getElementById("error").innerHTML = "Please fill all fields";
+return;
 }
 
-</script>
+localStorage.setItem("user", user);
 
-</body>
-</html>
+document.getElementById("loginPage").style.display = "none";
+document.getElementById("homePage").style.display = "block";
+
+document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
+}
+
+// START APP
+function startApp(){
+
+document.getElementById("homePage").style.display = "none";
+document.getElementById("mainPage").style.display = "block";
+
+let user = localStorage.getItem("user");
+document.getElementById("userDisplay").innerHTML = "Welcome, " + user;
+
+showSection('rec');
+}
+
+// LOGOUT
+function logout(){
+localStorage.removeItem("user");
+
+document.getElementById("mainPage").style.display = "none";
+document.getElementById("homePage").style.display = "none";
+document.getElementById("loginPage").style.display = "block";
+}
+
+// NAVIGATION
+function showSection(section){
+
+document.getElementById("recSection").style.display = "none";
+document.getElementById("analysisSection").style.display = "none";
+document.getElementById("historySection").style.display = "none";
+document.getElementById("favSection").style.display = "none";
+document.getElementById("adminSection").style.display = "none";
+
+if(section === 'rec'){
+document.getElementById("recSection").style.display = "block";
+}
+if(section === 'analysis'){
+document.getElementById("analysisSection").style.display = "block";
+}
+if(section === 'history'){
+document.getElementById("historySection").style.display = "block";
+loadHistory();
+}
+if(section === 'fav'){
+document.getElementById("favSection").style.display = "block";
+loadFavorites();
+}
+if(section === 'admin'){
+document.getElementById("adminSection").style.display = "block";
+}
+}
+
+// RECOMMENDATION
+function getRec(){
+
+let id = document.getElementById("sid").value;
+let role = document.getElementById("career").value;
+
+currentRole = role;
+
+if(id == "" || role == ""){
+document.getElementById("result").innerHTML = "Please enter Student ID and select career role";
+return;
+}
+
+document.getElementById("result").innerHTML = "Analyzing...";
+
+setTimeout(() => {
+
+let data = {
+"Data Scientist": {
+skills: "Python, Machine Learning, Statistics",
+courses: "ML Basics, Pandas, Data Science Intro",
+values: [5,4,3],
+gap: "SQL, Deep Learning"
+},
+"Web Developer": {
+skills: "HTML, CSS, JavaScript",
+courses: "Web Development, Frontend Basics, JS Advanced",
+values: [5,4,3],
+gap: "React, Backend"
+},
+"Data Analyst": {
+skills: "Excel, SQL, Python",
+courses: "Data Analysis, SQL Basics, Excel Advanced",
+values: [5,4,3],
+gap: "Visualization Tools"
+},
+"AI Engineer": {
+skills: "Python, Deep Learning, TensorFlow",
+courses: "Deep Learning, Neural Networks, AI Basics",
+values: [5,4,3],
+gap: "Advanced Math"
+},
+"Software Engineer": {
+skills: "Java, DSA, OOP",
+courses: "Data Structures, Algorithms, OOP Concepts",
+values: [5,4,3],
+gap: "System Design"
+}
+};
+
+let result = data[role];
+
+// confidence
+let confidence = Math.floor(Math.random() * 20) + 80;
+
+// OUTPUT
+document.getElementById("result").innerHTML =
+"<h3>Recommendation Result</h3>" +
+"<p><b>Student ID:</b> " + id + "</p>" +
+"<p><b>Career:</b> " + role + "</p>" +
+"<p><b>Confidence:</b> " + confidence + "%</p>" +
+"<p><b>Skills:</b> " + result.skills + "</p>" +
+"<p><b>Courses:</b> " + result.courses + "</p>" +
+"<p><b>Skill Gap:</b> " + result.gap + "</p>";
+
+saveHistory(role);
+
+// GRAPH
+let ctx = document.getElementById('chart').getContext('2d');
+
+if(window.myChart){
+window.myChart.destroy();
+}
+
+window.myChart = new Chart(ctx, {
+type: 'bar',
+data: {
+labels: result.skills.split(", "),
+datasets: [{
+label: 'Skill Importance',
+data: result.values
+}]
+}
+});
+
+}, 500);
+}
+
+// HISTORY
+function saveHistory(role){
+
+let history = JSON.parse(localStorage.getItem("history")) || [];
+history.push(role);
+
+localStorage.setItem("history", JSON.stringify(history));
+
+}
+
+function loadHistory(){
+
+let history = JSON.parse(localStorage.getItem("history")) || [];
+let list = document.getElementById("historyList");
+list.innerHTML = "";
+
+history.slice(-5).reverse().forEach(item => {
+let li = document.createElement("li");
+li.textContent = item;
+list.appendChild(li);
+});
+}
+
+// FAVORITES
+function saveFavorite(){
+
+if(currentRole == "") return;
+
+let fav = JSON.parse(localStorage.getItem("fav")) || [];
+fav.push(currentRole);
+
+localStorage.setItem("fav", JSON.stringify(fav));
+
+loadFavorites();
+}
+
+function loadFavorites(){
+
+let fav = JSON.parse(localStorage.getItem("fav")) || [];
+let list = document.getElementById("favList");
+list.innerHTML = "";
+
+fav.slice(-5).reverse().forEach(item => {
+let li = document.createElement("li");
+li.textContent = item;
+list.appendChild(li);
+});
+}
