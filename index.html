@@ -31,11 +31,20 @@
 <h2>NeuroLearn AI</h2>
 <p id="userDisplay"></p>
 
+<!-- NAVIGATION -->
+<div>
+<button onclick="showSection('rec')">Recommendation</button>
+<button onclick="showSection('analysis')">Analysis</button>
+<button onclick="showSection('history')">History</button>
+<button onclick="showSection('fav')">Favorites</button>
+<button onclick="showSection('admin')">Admin</button>
 <button onclick="logout()">Logout</button>
-<button onclick="openAdmin()">Admin</button>
+</div>
 
-<br><br>
+<br>
 
+<!-- RECOMMENDATION -->
+<div id="recSection">
 <input id="sid" placeholder="Enter Student ID">
 
 <select id="career">
@@ -48,28 +57,36 @@
 </select>
 
 <button onclick="getRec()">Get Recommendation</button>
-<button onclick="saveFavorite()"> Save Favorite</button>
 
 <div id="result"></div>
+</div>
 
+<!-- ANALYSIS -->
+<div id="analysisSection" style="display:none;">
 <h3>Skill Analysis</h3>
 <canvas id="chart"></canvas>
+</div>
 
+<!-- HISTORY -->
+<div id="historySection" style="display:none;">
 <h3>History</h3>
 <ul id="historyList"></ul>
+</div>
 
+<!-- FAVORITES -->
+<div id="favSection" style="display:none;">
 <h3>Favorites</h3>
 <ul id="favList"></ul>
-
+<button onclick="saveFavorite()"> Save Favorite</button>
 </div>
 
 <!-- ADMIN -->
-<div id="adminPage" style="display:none;">
-<h2>Admin Dashboard</h2>
+<div id="adminSection" style="display:none;">
+<h3>Admin Dashboard</h3>
 <p>Total Users: 50</p>
 <p>Top Career: Data Scientist</p>
-<p>System Status: Active</p>
-<button onclick="backToMain()">Back</button>
+</div>
+
 </div>
 
 </div>
