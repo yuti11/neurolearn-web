@@ -2,7 +2,6 @@ let currentRole = "";
 
 // LOGIN
 function login(){
-
 let user = document.getElementById("username").value;
 let pass = document.getElementById("password").value;
 
@@ -19,16 +18,13 @@ document.getElementById("homePage").style.display = "block";
 document.getElementById("welcomeUser").innerHTML = "Welcome, " + user + " 👋";
 }
 
-// START APP
+// START
 function startApp(){
-
 document.getElementById("homePage").style.display = "none";
 document.getElementById("mainPage").style.display = "block";
 
 let user = localStorage.getItem("user");
 document.getElementById("userDisplay").innerHTML = "Welcome, " + user;
-
-showSection('rec');
 }
 
 // LOGOUT
@@ -40,18 +36,15 @@ document.getElementById("homePage").style.display = "none";
 document.getElementById("loginPage").style.display = "block";
 }
 
-// NAVIGATION
+// NAVIGATION (FIXED)
 function showSection(section){
 
-document.getElementById("recSection").style.display = "none";
+// hide all except recommendation stays always visible
 document.getElementById("analysisSection").style.display = "none";
 document.getElementById("historySection").style.display = "none";
 document.getElementById("favSection").style.display = "none";
 document.getElementById("adminSection").style.display = "none";
 
-if(section === 'rec'){
-document.getElementById("recSection").style.display = "block";
-}
 if(section === 'analysis'){
 document.getElementById("analysisSection").style.display = "block";
 }
@@ -120,10 +113,8 @@ gap: "System Design"
 
 let result = data[role];
 
-// confidence
 let confidence = Math.floor(Math.random() * 20) + 80;
 
-// OUTPUT
 document.getElementById("result").innerHTML =
 "<h3>Recommendation Result</h3>" +
 "<p><b>Student ID:</b> " + id + "</p>" +
@@ -158,16 +149,12 @@ data: result.values
 
 // HISTORY
 function saveHistory(role){
-
 let history = JSON.parse(localStorage.getItem("history")) || [];
 history.push(role);
-
 localStorage.setItem("history", JSON.stringify(history));
-
 }
 
 function loadHistory(){
-
 let history = JSON.parse(localStorage.getItem("history")) || [];
 let list = document.getElementById("historyList");
 list.innerHTML = "";
@@ -181,19 +168,16 @@ list.appendChild(li);
 
 // FAVORITES
 function saveFavorite(){
-
 if(currentRole == "") return;
 
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
 fav.push(currentRole);
 
 localStorage.setItem("fav", JSON.stringify(fav));
-
 loadFavorites();
 }
 
 function loadFavorites(){
-
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
 let list = document.getElementById("favList");
 list.innerHTML = "";
