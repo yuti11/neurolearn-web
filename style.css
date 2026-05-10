@@ -202,41 +202,6 @@ left:0;
 z-index:-1;
 }
 
-.floating-circle{
-position:absolute;
-border-radius:50%;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-animation:float 6s infinite ease-in-out;
-}
-
-.one{
-width:120px;
-height:120px;
-top:100px;
-right:100px;
-}
-
-.two{
-width:80px;
-height:80px;
-bottom:50px;
-left:200px;
-animation-delay:2s;
-}
-
-@keyframes float{
-0%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(-20px);
-}
-100%{
-transform:translateY(0px);
-}
-}
-
 @keyframes fadeLeft{
 from{
 opacity:0;
