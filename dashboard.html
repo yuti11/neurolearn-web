@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | NeuroLearn AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="dashboard-layout">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>NeuroLearn AI</h2>
+
+<div class="menu">
+
+<a href="dashboard.html" class="active">🏠 Dashboard</a>
+
+<a href="analysis.html">📊 Analysis</a>
+
+<a href="history.html">🕘 History</a>
+
+<a href="favourites.html">⭐ Favorites</a>
+
+<a href="profile.html">👤 Profile</a>
+
+<a href="admin.html">⚙ Admin</a>
+
+<a href="index.html" onclick="logout()">🚪 Logout</a>
+
+</div>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<div class="top-bar">
+
+<h1 id="dashboardUser">
+Welcome 👋
+</h1>
+
+<div class="ai-status">
+AI Active
+</div>
+
+</div>
+
+<!-- TOP CARDS -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>AI Confidence</h3>
+<p>94%</p>
+</div>
+
+<div class="stat-card">
+<h3>Skill Match</h3>
+<p>89%</p>
+</div>
+
+<div class="stat-card">
+<h3>Career Readiness</h3>
+<p>91%</p>
+</div>
+
+</div>
+
+<!-- RECOMMENDATION PANEL -->
+
+<div class="recommend-card">
+
+<h2>AI Career Recommendation</h2>
+
+<p class="small-text">
+Select your dream role and let AI judge your future 😭
+</p>
+
+<input type="text" id="sid" placeholder="Enter Student ID">
+
+<select id="career" onchange="funnyMessage()">
+
+<option value="">Select Career Role</option>
+
+<option>Data Scientist</option>
+<option>Web Developer</option>
+<option>Data Analyst</option>
+<option>AI Engineer</option>
+<option>Software Engineer</option>
+
+</select>
+
+<div id="funnyText" class="funny-box">
+AI waiting for your decision 🤖
+</div>
+
+<button class="main-btn" onclick="getRec()">
+Generate AI Recommendation
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<!-- CHART -->
+
+<div class="chart-card">
+
+<h2>Skill Analytics</h2>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="app.js"></script>
+
+<script>
+
+particlesJS("particles-js", {
+particles: {
+number: {
+value: 70
+},
+size: {
+value: 3
+},
+move: {
+speed: 2
+},
+line_linked: {
+enable: true
+},
+color: {
+value: "#8b5cf6"
+}
+}
+});
+
+let user = localStorage.getItem("user") || "User";
+
+document.getElementById("dashboardUser").innerHTML =
+"Welcome back, " + user + " 👋";
+
+</script>
+
+</body>
+</html>
