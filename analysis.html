@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Analysis | NeuroLearn AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="dashboard-layout">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>NeuroLearn AI</h2>
+
+<div class="menu">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="analysis.html" class="active">📊 Analysis</a>
+
+<a href="history.html">🕘 History</a>
+
+<a href="favourites.html">⭐ Favorites</a>
+
+<a href="profile.html">👤 Profile</a>
+
+<a href="admin.html">⚙ Admin</a>
+
+<a href="index.html">🚪 Logout</a>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main-content">
+
+<div class="top-bar">
+
+<h1>AI Analytics Center 📊</h1>
+
+<div class="ai-status">
+Live Analysis
+</div>
+
+</div>
+
+<!-- ANALYTICS CARDS -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>Prediction Accuracy</h3>
+<p>96%</p>
+</div>
+
+<div class="stat-card">
+<h3>Learning Progress</h3>
+<p>89%</p>
+</div>
+
+<div class="stat-card">
+<h3>AI Performance</h3>
+<p>94%</p>
+</div>
+
+</div>
+
+<!-- MAIN ANALYSIS -->
+
+<div class="analysis-grid">
+
+<div class="analysis-card">
+
+<h2>Skill Radar</h2>
+
+<canvas id="analysisChart"></canvas>
+
+</div>
+
+<div class="analysis-card">
+
+<h2>AI Insights</h2>
+
+<div class="insight-box">
+🚀 Your technical growth trend is rising rapidly.
+</div>
+
+<div class="insight-box">
+📈 AI predicts strong future readiness.
+</div>
+
+<div class="insight-box">
+🤖 Suggested focus: Advanced problem solving.
+</div>
+
+<div class="insight-box">
+⚡ Confidence level exceeds average learners.
+</div>
+
+</div>
+
+</div>
+
+<!-- PROGRESS SECTION -->
+
+<div class="progress-card">
+
+<h2>Skill Progress Tracking</h2>
+
+<div class="progress-item">
+
+<div class="progress-title">
+<span>Python</span>
+<span>92%</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill python"></div>
+</div>
+
+</div>
+
+<div class="progress-item">
+
+<div class="progress-title">
+<span>Machine Learning</span>
+<span>85%</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill ml"></div>
+</div>
+
+</div>
+
+<div class="progress-item">
+
+<div class="progress-title">
+<span>Problem Solving</span>
+<span>88%</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill problem"></div>
+</div>
+
+</div>
+
+<div class="progress-item">
+
+<div class="progress-title">
+<span>Frontend Skills</span>
+<span>80%</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill frontend"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+
+particlesJS("particles-js", {
+particles: {
+number: {
+value: 70
+},
+size: {
+value: 3
+},
+move: {
+speed: 2
+},
+line_linked: {
+enable: true
+},
+color: {
+value: "#8b5cf6"
+}
+}
+});
+
+let ctx =
+document.getElementById("analysisChart");
+
+new Chart(ctx, {
+
+type:'radar',
+
+data:{
+
+labels:[
+'Python',
+'ML',
+'Problem Solving',
+'Creativity',
+'Communication'
+],
+
+datasets:[{
+
+label:'Skill Level',
+
+data:[92,85,88,80,78],
+
+backgroundColor:'rgba(139,92,246,0.2)',
+
+borderColor:'#8b5cf6',
+
+borderWidth:3,
+
+pointBackgroundColor:'#60a5fa',
+
+pointRadius:5
+
+}]
+
+},
+
+options:{
+
+plugins:{
+legend:{
+labels:{
+color:'white'
+}
+}
+},
+
+scales:{
+r:{
+grid:{
+color:'rgba(255,255,255,0.1)'
+},
+angleLines:{
+color:'rgba(255,255,255,0.1)'
+},
+pointLabels:{
+color:'white'
+},
+ticks:{
+display:false
+}
+}
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
