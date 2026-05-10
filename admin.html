@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin | NeuroLearn AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="dashboard-layout">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>NeuroLearn AI</h2>
+
+<div class="menu">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="analysis.html">📊 Analysis</a>
+
+<a href="history.html">🕘 History</a>
+
+<a href="favourites.html">⭐ Favorites</a>
+
+<a href="profile.html">👤 Profile</a>
+
+<a href="admin.html" class="active">⚙ Admin</a>
+
+<a href="index.html">🚪 Logout</a>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main-content">
+
+<div class="top-bar">
+
+<h1>AI Command Center ⚙️</h1>
+
+<div class="ai-status">
+System Stable
+</div>
+
+</div>
+
+<!-- ADMIN STATS -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>Total Users</h3>
+<p>2,481</p>
+</div>
+
+<div class="stat-card">
+<h3>Predictions Today</h3>
+<p>847</p>
+</div>
+
+<div class="stat-card">
+<h3>AI Stability</h3>
+<p>99%</p>
+</div>
+
+</div>
+
+<!-- SYSTEM GRID -->
+
+<div class="admin-grid">
+
+<div class="admin-card">
+
+<h2>AI System Monitoring</h2>
+
+<div class="system-item">
+🚀 Recommendation Engine : Active
+</div>
+
+<div class="system-item">
+📊 Analytics Engine : Running
+</div>
+
+<div class="system-item">
+🤖 AI Synchronization : Stable
+</div>
+
+<div class="system-item">
+⚡ Neural Processing : Optimized
+</div>
+
+</div>
+
+<div class="admin-card">
+
+<h2>Top Career Trends</h2>
+
+<canvas id="trendChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- LIVE LOGS -->
+
+<div class="logs-card">
+
+<h2>Live AI Logs 📡</h2>
+
+<div class="log-item">
+[12:45 PM] User prediction completed successfully.
+</div>
+
+<div class="log-item">
+[12:47 PM] AI confidence recalibrated.
+</div>
+
+<div class="log-item">
+[12:50 PM] New analytics profile generated.
+</div>
+
+<div class="log-item">
+[12:52 PM] Neural recommendation module optimized.
+</div>
+
+</div>
+
+<!-- AI MESSAGE -->
+
+<div class="admin-message">
+
+<h2>System AI Observation 👀</h2>
+
+<p>
+"Everything appears under control... probably 😭"
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+
+particlesJS("particles-js", {
+particles: {
+number: {
+value: 70
+},
+size: {
+value: 3
+},
+move: {
+speed: 2
+},
+line_linked: {
+enable: true
+},
+color: {
+value: "#8b5cf6"
+}
+}
+});
+
+let ctx =
+document.getElementById("trendChart");
+
+new Chart(ctx, {
+
+type:'doughnut',
+
+data:{
+
+labels:[
+'AI Engineer',
+'Data Scientist',
+'Web Developer',
+'Data Analyst'
+],
+
+datasets:[{
+
+data:[35,30,20,15],
+
+backgroundColor:[
+'#8b5cf6',
+'#3b82f6',
+'#06b6d4',
+'#c084fc'
+],
+
+borderWidth:0
+
+}]
+
+},
+
+options:{
+
+plugins:{
+legend:{
+labels:{
+color:'white'
+}
+}
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
