@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NeuroLearn AI</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 </head>
 
@@ -11,137 +20,87 @@
 
 <div id="particles-js"></div>
 
-<div class="container">
+<div class="login-wrapper">
 
-<!-- LOGIN -->
-<div id="loginPage">
+<div class="left-panel">
+
+<div class="logo-glow"></div>
+
 <h1>NeuroLearn AI</h1>
 
-<input id="username" placeholder="Enter Username">
-<input id="password" type="password" placeholder="Enter Password">
+<p class="tagline">
+Future Learning Starts Here 🚀
+</p>
 
-<button onclick="login()">Login</button>
+<div class="ai-card">
+<h3>AI Insights</h3>
+<p>
+Personalized recommendations powered by intelligent analytics.
+</p>
+</div>
+
+<div class="floating-circle one"></div>
+<div class="floating-circle two"></div>
+
+</div>
+
+<div class="right-panel">
+
+<div class="glass-card">
+
+<h2 id="formTitle">Login</h2>
+
+<p class="sub-text">
+Access your futuristic learning dashboard
+</p>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()" class="main-btn">
+Enter Platform
+</button>
 
 <p id="error"></p>
-</div>
 
-<!-- HOME -->
-<div id="homePage" style="display:none;">
-<h1>Welcome to NeuroLearn AI</h1>
-<h3 id="welcomeUser"></h3>
-
-<button onclick="startApp()">Enter Dashboard</button>
-</div>
-
-<!-- MAIN -->
-<div id="mainPage" style="display:none;">
-
-<h2>Dashboard</h2>
-<p id="userDisplay"></p>
-
-<div>
-<button onclick="showSection('rec')">Dashboard</button>
-<button onclick="showSection('analysis')">Analysis</button>
-<button onclick="showSection('history')">History</button>
-<button onclick="showSection('fav')">Favorites</button>
-<button onclick="showSection('profile')">Profile</button>
-<button onclick="showSection('about')">About</button>
-<button onclick="showSection('how')">How</button>
-<button onclick="showSection('admin')">Admin</button>
-<button onclick="logout()">Logout</button>
-</div>
-
-<br>
-
-<!-- RECOMMENDATION -->
-<div id="recSection">
-
-<input id="sid" placeholder="Enter Student ID">
-
-<select id="career">
-<option value="">Select Career Role</option>
-<option>Data Scientist</option>
-<option>Web Developer</option>
-<option>Data Analyst</option>
-<option>AI Engineer</option>
-<option>Software Engineer</option>
-</select>
-
-<button onclick="getRec()">Get Recommendation</button>
-
-<div id="result"></div>
-
-</div>
-
-<!-- ANALYSIS -->
-<div id="analysisSection" style="display:none;">
-<h3>Skill Analysis</h3>
-<canvas id="chart"></canvas>
-</div>
-
-<!-- HISTORY -->
-<div id="historySection" style="display:none;">
-<h3>History</h3>
-<ul id="historyList"></ul>
-</div>
-
-<!-- FAVORITES -->
-<div id="favSection" style="display:none;">
-<h3>Favorites</h3>
-<ul id="favList"></ul>
-<button onclick="saveFavorite()"> Save Favorite</button>
-</div>
-
-<!-- PROFILE -->
-<div id="profileSection" style="display:none;">
-<h3>Profile</h3>
-<p id="profileName"></p>
-<p id="totalSearch"></p>
-<p id="favCareer"></p>
-</div>
-
-<!-- ABOUT -->
-<div id="aboutSection" style="display:none;">
-<h3>About</h3>
-<p>This system provides personalized AI-based learning recommendations.</p>
-<p>Technologies: HTML, CSS, JavaScript, Azure</p>
-</div>
-
-<!-- HOW -->
-<div id="howSection" style="display:none;">
-<h3>How It Works</h3>
-<p>1. User inputs data</p>
-<p>2. System processes it</p>
-<p>3. AI generates recommendation</p>
-<p>4. Results + visualization shown</p>
-</div>
-
-<!-- ADMIN -->
-<div id="adminSection" style="display:none;">
-<h3>Admin Dashboard</h3>
-<p>Total Users: 50</p>
-<p>Top Career: Data Scientist</p>
-<p>Status: Active</p>
+<div class="switch-box">
+<p>
+Don't have an account?
+<span onclick="toggleForm()">Register</span>
+</p>
 </div>
 
 </div>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</div>
+
 <script src="app.js"></script>
 
 <script>
+
 particlesJS("particles-js", {
 particles: {
-number: { value: 60 },
-size: { value: 3 },
-move: { speed: 2 },
-line_linked: { enable: true },
-color: { value: "#ffffff" }
+number: {
+value: 80
+},
+size: {
+value: 3
+},
+move: {
+speed: 2
+},
+line_linked: {
+enable: true
+},
+color: {
+value: "#7c3aed"
+}
 }
 });
+
 </script>
 
 </body>
