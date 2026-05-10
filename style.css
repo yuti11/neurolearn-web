@@ -327,3 +327,86 @@ opacity:1;
 transform:translateY(0);
 }
 }
+
+.welcome-container{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.welcome-card{
+
+width:700px;
+padding:60px;
+border-radius:35px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,0.1);
+
+text-align:center;
+
+box-shadow:
+0 0 40px rgba(0,0,0,0.5),
+0 0 100px rgba(124,58,237,0.2);
+
+animation:fadeIn 1.2s ease;
+}
+
+.welcome-card h1{
+
+font-size:50px;
+margin-bottom:25px;
+
+background:linear-gradient(90deg,#c084fc,#60a5fa);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.welcome-sub{
+opacity:0.8;
+font-size:18px;
+line-height:1.7;
+margin-bottom:40px;
+}
+
+.ai-loader{
+width:90px;
+height:90px;
+margin:30px auto;
+
+border-radius:50%;
+
+border:6px solid rgba(255,255,255,0.1);
+
+border-top:6px solid #8b5cf6;
+
+animation:spin 1s linear infinite;
+}
+
+.welcome-quotes{
+margin-top:30px;
+font-size:18px;
+opacity:0.8;
+color:#c4b5fd;
+}
+
+@media(max-width:768px){
+
+.welcome-card{
+width:100%;
+padding:40px 25px;
+}
+
+.welcome-card h1{
+font-size:34px;
+}
+
+}
