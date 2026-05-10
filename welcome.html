@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Welcome | NeuroLearn AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="welcome-container">
+
+<div class="welcome-card">
+
+<h1 id="welcomeText"></h1>
+
+<p class="welcome-sub">
+AI modules are synchronizing your personalized learning journey 🚀
+</p>
+
+<div class="ai-loader"></div>
+
+<div class="welcome-quotes">
+
+<p id="quoteText">
+"Analyzing your future..."
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+
+particlesJS("particles-js", {
+particles: {
+number: {
+value: 70
+},
+size: {
+value: 3
+},
+move: {
+speed: 2
+},
+line_linked: {
+enable: true
+},
+color: {
+value: "#8b5cf6"
+}
+}
+});
+
+let user = localStorage.getItem("user") || "User";
+
+let text = "Welcome back, " + user + " 👋";
+
+let i = 0;
+
+function typingEffect(){
+
+if(i < text.length){
+
+document.getElementById("welcomeText").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typingEffect,70);
+
+}
+
+}
+
+typingEffect();
+
+
+// FUNNY AI TEXTS
+let quotes = [
+
+"Preparing your future... 🚀",
+
+"AI confidence levels rising 📈",
+
+"Scanning career universe 🌌",
+
+"Future success probability: dangerously high 😎",
+
+"Your dashboard is loading with intelligence 🤖"
+
+];
+
+let q = 0;
+
+setInterval(()=>{
+
+q = (q + 1) % quotes.length;
+
+document.getElementById("quoteText").innerHTML = quotes[q];
+
+},2000);
+
+
+// AUTO REDIRECT
+setTimeout(()=>{
+
+window.location.href = "dashboard.html";
+
+},7000);
+
+</script>
+
+</body>
+</html>
