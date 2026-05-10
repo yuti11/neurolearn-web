@@ -1,1 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile | NeuroLearn AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="dashboard-layout">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>NeuroLearn AI</h2>
+
+<div class="menu">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="analysis.html">📊 Analysis</a>
+
+<a href="history.html">🕘 History</a>
+
+<a href="favourites.html">⭐ Favorites</a>
+
+<a href="profile.html" class="active">👤 Profile</a>
+
+<a href="admin.html">⚙ Admin</a>
+
+<a href="index.html">🚪 Logout</a>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main-content">
+
+<div class="top-bar">
+
+<h1>User Profile 👤</h1>
+
+<div class="ai-status">
+Profile Synced
+</div>
+
+</div>
+
+<!-- PROFILE SECTION -->
+
+<div class="profile-grid">
+
+<div class="profile-card">
+
+<div class="avatar-box">
+👩‍💻
+</div>
+
+<h2 id="profileUser">
+Yuti
+</h2>
+
+<p class="profile-role">
+AI Learning Explorer 🚀
+</p>
+
+<div class="profile-stats">
+
+<div>
+<h3>24</h3>
+<p>Searches</p>
+</div>
+
+<div>
+<h3>12</h3>
+<p>Favorites</p>
+</div>
+
+<div>
+<h3>94%</h3>
+<p>AI Score</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="profile-info">
+
+<div class="info-card">
+
+<h3>Career Focus</h3>
+
+<p>
+AI Engineer & Data Science pathways show highest compatibility.
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>Learning Status</h3>
+
+<p>
+Current learning growth trend is above average 📈
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>AI Observation</h3>
+
+<p>
+"Your future seems suspiciously successful 👀"
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>Top Skills</h3>
+
+<div class="skill-tags">
+
+<span>Python</span>
+<span>Machine Learning</span>
+<span>Analytics</span>
+<span>UI Design</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITY SECTION -->
+
+<div class="activity-card">
+
+<h2>Recent AI Activities ⚡</h2>
+
+<div class="activity-item">
+🚀 Career prediction generated successfully.
+</div>
+
+<div class="activity-item">
+📊 Analytics dashboard viewed recently.
+</div>
+
+<div class="activity-item">
+⭐ AI Engineer added to favorites.
+</div>
+
+<div class="activity-item">
+🤖 Profile synchronization completed.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+
+particlesJS("particles-js", {
+particles: {
+number: {
+value: 70
+},
+size: {
+value: 3
+},
+move: {
+speed: 2
+},
+line_linked: {
+enable: true
+},
+color: {
+value: "#8b5cf6"
+}
+}
+});
+
+let user =
+localStorage.getItem("user") || "User";
+
+document.getElementById("profileUser").innerHTML =
+user;
+
+</script>
+
+</body>
+</html>
